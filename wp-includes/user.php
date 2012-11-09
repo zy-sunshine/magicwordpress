@@ -66,6 +66,35 @@ function wp_signon( $credentials = '', $secure_cookie = '' ) {
 }
 
 /**
+ * Check user, if not exist sync it from sso server.
+ */
+
+define('SSO_ROOT', dirname(dirname(__FILE__))."/magicsso/");
+define('SSO_URL', 'http://127.0.0.1/linuxfans/magicsso');
+add_filter('authenticate', 'sync_user_if_not_exist', 19, 3);
+function sync_user_if_not_exist($value, $username, $password){
+	if(!$username){
+		return $value;
+	}
+
+    $userdata = get_user_by('login', $username);
+    if($userdata == null){
+        // user not exist, so we should try sync it from sso server.
+        include_once SSO_ROOT.'./utils/functions.inc.php';
+        $userdata_sso = sso_get_user($username);
+        var_dump($userdata_sso);
+        if($userdata_sso){
+        	// redirect to regist or enable perm
+        	wp_redirect(add_query_arg(array('action' => 'enable_site_perm', 'site' => 'magicwordpress', 'fromurl' => network_home_url()), SSO_URL));
+        }else{
+        	wp_redirect(add_query_arg(array('action' => 'regist_site_perm', 'site' => 'magicwordpress', 'fromurl' => network_home_url()), SSO_URL));
+        }
+        die();
+    }
+    return $value;
+}
+
+/**
  * Authenticate the user using the username and password.
  */
 add_filter('authenticate', 'wp_authenticate_username_password', 20, 3);

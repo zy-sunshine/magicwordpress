@@ -25,3 +25,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+# CONFIG FILE
+/wp-config.php
+
+# sso project from another git repo
+/magicsso
