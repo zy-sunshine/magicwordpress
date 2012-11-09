@@ -69,8 +69,6 @@ function wp_signon( $credentials = '', $secure_cookie = '' ) {
  * Check user, if not exist sync it from sso server.
  */
 
-define('SSO_ROOT', dirname(dirname(__FILE__))."/magicsso/");
-define('SSO_URL', 'http://127.0.0.1/linuxfans/magicsso');
 add_filter('authenticate', 'sync_user_if_not_exist', 19, 3);
 function sync_user_if_not_exist($value, $username, $password){
 	if(!$username){
