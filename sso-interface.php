@@ -1,5 +1,6 @@
 <?php
 require( dirname(__FILE__) . '/wp-load.php' );
+include_once SSO_ROOT.'./utils/functions.inc.php';
 // Useage:
 // http://127.0.0.1/linuxfans/magicwordpress/sso-interface.php?un=sunshine&pw=magic&email=zy.sunshine@hotmail.com
 /**
@@ -10,8 +11,10 @@ define('SSO_ROOT', dirname(dirname(__FILE__))."/magicsso/");
 $username = $_GET['un'];
 $password = $_GET['pw'];
 $email = $_GET['email'];
+$tgt = $_GET['tgt'];
 var_dump($username." ".$password." ".$email);
-regist_user($username, $password, $email);
+// regist_user($username, $password, $email);
+
 function regist_user($username, $password, $email){
 
 #   $user_details = wpmu_validate_user_signup( $username, $email );
@@ -55,6 +58,62 @@ function regist_user($username, $password, $email){
 // Some possible return error of $user_id
 // { ["errors"]=> array(1) { ["existing_user_email"]=> array(1) { [0]=> string(36) "该电子邮件地址已被注册。" } } ["error_data"]=> array(0) { } }
     }
+}
+$credentials = array('user_login' => $username, 'user_password' => $password, 'rememberme' => true);
+
+sso_wp_signon($tgt, $credentials);
+
+function sso_wp_signon($credentials = '', $secure_cookie = ''){
+    // function copy from wp_signon and modify it to adapt with sso login.
+
+    // get user info with tgt
+    $userinfo_sso = sso_get_user_info($tgt);
+    if(! ($userinfo_sso && array_key_exists('un', $userinfo_sso)) ){
+        wp_redirect(add_query_arg(array('action' => 'login_site_perm', 'site' => 'magicwordpress', 'fromurl' => network_home_url()), SSO_URL));
+    }
+
+    if ( empty($credentials) ) {
+        if ( ! empty($_POST['log']) )
+            $credentials['user_login'] = $_POST['log'];
+        if ( ! empty($_POST['pwd']) )
+            $credentials['user_password'] = $_POST['pwd'];
+        if ( ! empty($_POST['rememberme']) )
+            $credentials['remember'] = $_POST['rememberme'];
+    }
+
+    if ( !empty($credentials['remember']) )
+        $credentials['remember'] = true;
+    else
+        $credentials['remember'] = false;
+
+    // TODO do we deprecate the wp_authentication action?
+    //do_action_ref_array('wp_authenticate', array(&$credentials['user_login'], &$credentials['user_password']));
+
+    if ( '' === $secure_cookie )
+        $secure_cookie = is_ssl();
+
+    $secure_cookie = apply_filters('secure_signon_cookie', $secure_cookie, $credentials);
+
+    global $auth_secure_cookie; // XXX ugly hack to pass this to wp_authenticate_cookie
+    $auth_secure_cookie = $secure_cookie;
+
+    add_filter('authenticate', 'wp_authenticate_cookie', 30, 3);
+
+    //$user = wp_authenticate($credentials['user_login'], $credentials['user_password']);
+    $userdata = get_user_by('login', $userinfo_sso['un']);
+    $user =  new WP_User($userdata->ID);
+
+    if ( is_wp_error($user) ) {
+        if ( $user->get_error_codes() == array('empty_username', 'empty_password') ) {
+            $user = new WP_Error('', '');
+        }
+
+        return $user;
+    }
+
+    wp_set_auth_cookie($user->ID, $credentials['remember'], $secure_cookie);
+    do_action('wp_login', $user->user_login, $user);
+    return $user;
 }
 
 ?>

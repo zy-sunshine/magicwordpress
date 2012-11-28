@@ -71,6 +71,7 @@ function wp_signon( $credentials = '', $secure_cookie = '' ) {
 
 add_filter('authenticate', 'sync_user_if_not_exist', 19, 3);
 function sync_user_if_not_exist($value, $username, $password){
+	if ( is_a($user, 'WP_User') ) { return $user; }
 	if(!$username){
 		return $value;
 	}
