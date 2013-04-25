@@ -1,0 +1,14 @@
+.pagetitle, span.separator, div.heading span.tagline  { color: #2e5058; text-shadow: 1px 1px 1px #6ba390; }
+
+body  { background:url("images/turquoise/main-bg.jpg") no-repeat scroll center top #558f90; }
+
+div.container-top  { background:url("images/turquoise/container-top.png") no-repeat scroll 0 0 transparent; }
+div.container { background:url("images/turquoise/container.png") repeat-y scroll 0 0 transparent; }
+	div.heading  { background:url("images/turquoise/divider.png") no-repeat scroll 30px 52px transparent; }
+div.container-bottom { background:url("images/turquoise/container-bottom.png") no-repeat scroll 0 0 transparent; }
+div.entry { text-shadow: 1px 1px 1px #2d5d58; }
+
+a { color: #ffffff; text-shadow: 1px 1px 1px #366861;}
+ul#nav li.active { background:url("images/turquoise/pageactive-bg.png") no-repeat scroll right top transparent; }
+ul#nav li a.hover { background: url(images/turquoise/hover-bullet.png) no-repeat center right; }
+ul#nav li.active a { text-shadow: 1px 1px 1px #31615a; }

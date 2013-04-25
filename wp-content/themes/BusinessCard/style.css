@@ -1,0 +1,165 @@
+/*
+Theme Name: BusinessCard
+Theme URI: http://www.elegantthemes.com/gallery/businesscard
+Version: 2.7
+Description: one-page theme from Elegant Themes
+Author: Elegant Themes
+Author URI: http://www.elegantthemes.com
+*/
+
+/*------------------------------------------------*/
+/*-----------------[RESET]------------------------*/
+/*------------------------------------------------*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q {	quotes: none; }
+blockquote:before, blockquote:after,q:before, q:after { content: ''; content: none; }
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+
+/*------------------------------------------------*/
+/*-----------------[BASIC STYLES]-----------------*/
+/*------------------------------------------------*/
+
+body { overflow-x:hidden; overflow-y:scroll; background: #b5b5b5 url(images/main-bg.jpg) no-repeat center top; text-align: center; font-family: Arial, Verdana, sans-serif; font-size: 12px; color: #ffffff; line-height: 21px; }
+
+a { text-decoration: none; color: #454444; text-shadow: 1px 1px 1px #ffffff;}
+a:hover { text-decoration: underline; }
+.clear { clear: both; }
+.ui-tabs-hide { display: none; }
+br.clear { margin: 0px; padding: 0px; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; padding-bottom: 5px; color: #000000; letter-spacing: -1px; line-height: 1em; }
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: #000000; }
+h1 { font-size: 36px; }
+h2 { font-size: 24px; }
+h3 { font-size: 22px; }
+h4 { font-size: 18px; }
+h5 { font-size: 16px; }
+h6 { font-size: 14px; }
+p { padding-bottom: 10px; line-height: 24px; }
+strong { font-weight: bold; color: #1c1c1c; }
+cite, em, i { font-style: italic; }
+pre, code { font-family: Courier New, monospace; margin-bottom: 10px; }
+ins { text-decoration: none; }
+sup, sub { height: 0; line-height: 1; position: relative; vertical-align: baseline; }
+sup { bottom: 0.8em; }
+sub { top: 0.3em; }
+dl { margin: 0 0 1.5em 0; }
+dl dt { font-weight: bold; }
+dd  { margin-left: 1.5em;}
+blockquote  { margin: 1.5em; padding: 1em; color: #666666; background: #e6e6e6; font-style: italic; border: 1px solid #dcdcdc; }
+	blockquote p { padding-bottom: 0px; text-shadow: none;}
+
+input[type=text],input.text, input.title, textarea, select { background-color:#fff; border:1px solid #bbb; padding: 2px; color: #4e4e4e; }
+input[type=text]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus { border-color:#2D3940; color: #3e3e3e; }
+input[type=text], input.text, input.title, textarea, select { margin:0.5em 0; }
+textarea { padding: 4px; }
+
+img#about-image { float: left; margin: 3px 8px 8px 0px; }
+
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+/*------------------------------------------------*/
+/*---------------[MAIN LAYOUT INFO]---------------*/
+/*------------------------------------------------*/
+
+#page-wrap { width: 810px; margin: 0 auto; position: absolute; top: 25%; left: 20%; }
+	#main-content { float: right; text-align: left; width: 586px;}
+		img#logo { margin: 138px 0px 0px 65px; }
+		div.container-top { background: url(images/container-top.png) no-repeat; height: 16px; }
+		div.container-bottom { background: url(images/container-bottom.png) no-repeat; height: 16px; margin-bottom:15px; }
+		div.container { background: url(images/container.png) repeat-y; min-height: 340px; padding: 24px 0px 0px; }
+		
+		div.container-top, div.container-bottom, div.container { visibility: hidden; }
+			div.divider { width: 559px; height: 18px; clear: both;}
+			
+			div.heading { padding: 0px 42px 21px 39px; background: url(images/divider.png) no-repeat bottom left; }
+				.pagetitle { letter-spacing:-2.3px; }
+					span.separator { margin: 5px 13px 0px 8px; }
+					.pagetitle, span.separator { float: left; color: #4a4949; text-shadow: 1px 1px 1px #d2d2d2; font-size: 36px; }
+				div.heading span.tagline {color: #4a4949; font-family: Century Gothic,Arial,Verdana,sans-serif; font-size: 24px; text-shadow: 1px 1px 1px #c9c9c9; padding-top:11px; display:block; }
+			
+			div.entry { text-shadow: 1px 1px 1px #717171; padding: 11px 42px 8px;}
+			
+		div.page { visibility: hidden; }
+			div.page ul { list-style-type: disc; margin: 10px 0px 10px 20px; }
+				div.page ol { list-style-type: decimal; list-style-position: inside; margin: 10px 0px 10px 2px; }
+					div.page ul li ul, div.page ul li ol { margin: 2px 0px 2px 20px; }
+					div.page ol li ul, div.page ol li ol  { margin: 2px 0px 2px 35px; }
+
+		
+/*------------------------------------------------*/
+/*-------------------[COMMENTS]-------------------*/
+/*------------------------------------------------*/
+
+
+/*------------------------------------------------*/
+/*--------------------[SIDEBAR]-------------------*/
+/*------------------------------------------------*/
+
+#sidebar { float: left; width: 223px; text-align: right; line-height: 50px; padding-top: 14px; } 
+
+	ul#nav li { height:55px; margin-right:-9px; padding: 8px 44px 0px 0px; }
+		ul#nav li img { float:left; margin: 10px 3px 0px 0px; display: none; }
+	
+	ul#nav li.active { background: url(images/pageactive-bg.png) no-repeat top right; }
+		ul#nav li.active a { color: #ffffff; text-shadow: 1px 1px 1px #717171; }
+		ul#nav li a { text-decoration: none; float: right; padding-right:10px; }
+		ul#nav li a.hover { background: url(images/hover-bullet.png) no-repeat center right; }
+
+			
+/*------------------------------------------------*/
+/*------------[CAPTIONS AND ALIGNMENTS]-----------*/
+/*------------------------------------------------*/
+
+div.post .new-post .aligncenter, .aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.wp-caption { border: 1px solid #ddd; text-align: center; background-color: #f3f3f3; padding-top: 4px; margin-bottom: 10px; }
+.wp-caption.alignleft { margin: 0px 10px 10px 0px; }
+.wp-caption.alignright { margin: 0px 0px 10px 10px; }
+.wp-caption img { margin: 0; padding: 0; border: 0 none; }
+.wp-caption p.wp-caption-text { font-size: 11px; line-height: 17px; padding: 0 4px 5px; margin: 0; color: #000000; text-shadow: none;}
+.alignright { float: right; }
+.alignleft { float: left }
+img.alignleft { display:inline; float:left; margin-right:15px; }
+img.alignright { display:inline; float:right; margin-left:15px; }
+
+	
+/*------------------------------------------------*/
+/*-----------------[WP CALENDAR]-----------------*/
+/*------------------------------------------------*/
+#wp-calendar { empty-cells: show; margin: 10px auto 0; width: 240px;	}
+	#wp-calendar a { display: block; text-decoration: none; font-weight: bold; }
+		#wp-calendar a:hover { text-decoration: underline; }
+	#wp-calendar caption {	text-decoration: none; font: bold 13px Arial, Sans-Serif; }
+	#wp-calendar td {	padding: 3px 5px; color: #9f9f9f; }
+		#wp-calendar td#today { color: #ffffff; }
+	#wp-calendar th { font-style: normal; text-transform: capitalize; padding: 3px 5px; }
+		#wp-calendar #prev a, #wp-calendar #next a { font-size: 9pt; }
+		#wp-calendar #next a { padding-right: 10px; text-align: right; }
+		#wp-calendar #prev a { padding-left: 10px; text-align: left; }
+
+.gallery-wrap { position: relative; }
+	.gallery-item { margin-right: 25px; width: auto !important; }
+	.gallery { position: relative !important; width: 502px; height: 210px; }
+	.gallery .slide { position: absolute; top: 0px; left: 0px; }
+	a.prevgallery, a.nextgallery { display: block; width: 9px; height: 17px; text-indent: -9999px; position: absolute; top: 77px; }
+	a.prevgallery { background: url(images/arrow-left.png) no-repeat; position: absolute; left: -23px; }
+	a.nextgallery { background: url(images/arrow-right.png) no-repeat; right: -20px; }

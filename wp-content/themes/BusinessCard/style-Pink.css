@@ -1,0 +1,14 @@
+.pagetitle, span.separator, div.heading span.tagline  { color: #48263f; text-shadow: 1px 1px 1px #a36b81; }
+
+body  { background:url("images/pink/main-bg.jpg") no-repeat scroll center top #90556d; }
+
+div.container-top  { background:url("images/pink/container-top.png") no-repeat scroll 0 0 transparent; }
+div.container { background:url("images/pink/container.png") repeat-y scroll 0 0 transparent; }
+	div.heading  { background:url("images/pink/divider.png") no-repeat scroll 30px 52px transparent; }
+div.container-bottom { background:url("images/pink/container-bottom.png") no-repeat scroll 0 0 transparent; }
+div.entry { text-shadow: 1px 1px 1px #474349; }
+
+a { color: #ffffff; text-shadow: 1px 1px 1px #68364b;}
+ul#nav li.active { background:url("images/pink/pageactive-bg.png") no-repeat scroll right top transparent; }
+ul#nav li a.hover { background: url(images/pink/hover-bullet.png) no-repeat center right; }
+ul#nav li.active a { text-shadow: 1px 1px 1px #623145; }
