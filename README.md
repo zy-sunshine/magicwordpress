@@ -20,5 +20,6 @@ git clone xxxx/magicsso
 
 #配置 magicsso
 在wp-config.php末尾加入以下两行配置
+
     define('SSO_ROOT', dirname(__FILE__)."/magicsso/"); // magicsso 的文件夹绝对路径
     define('SSO_URL', 'http://218.56.161.12:81/magicsso'); // magicsso 的URL路径
