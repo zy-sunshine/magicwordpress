@@ -1,0 +1,14 @@
+.pagetitle, span.separator, div.heading span.tagline  { color: #283c49; text-shadow: 1px 1px 1px #6b8ca3; }
+
+body  { background:url("images/blue/main-bg.jpg") no-repeat scroll center top #557890; }
+
+div.container-top  { background:url("images/blue/container-top.png") no-repeat scroll 0 0 transparent; }
+div.container { background:url("images/blue/container.png") repeat-y scroll 0 0 transparent; }
+	div.heading  { background:url("images/blue/divider.png") no-repeat scroll 30px 52px transparent; }
+div.container-bottom { background:url("images/blue/container-bottom.png") no-repeat scroll 0 0 transparent; }
+div.entry { text-shadow: 1px 1px 1px #325165; }
+
+a { color: #ffffff; text-shadow: 1px 1px 1px #365468;}
+ul#nav li.active { background:url("images/blue/pageactive-bg.png") no-repeat scroll right top transparent; }
+ul#nav li a.hover { background: url(images/blue/hover-bullet.png) no-repeat center right; }
+ul#nav li.active a { text-shadow: 1px 1px 1px #324958; }
